@@ -11,8 +11,23 @@ pip3 install -r requirements.txt
 
 ## Usage
 
+First go to the Spotify for Developers website (https://developer.spotify.com/). Go to your dashboard and create a new application. Change the redirect-uri of your app to 'http:google.com/', you will need it later. You will also need the `Client ID` and `Clien Secret`. You will also need your Spotify `user id` and `playlist id` which you can find by copying your profile or playlist. The last thing you need is the Facebook `thread id`, which can be found if you go to thi link: https://www.facebook.com/messages/t/. It is the long number after the /t/.
+
 ### Locally
-Open the folder where the app.py file is located. Open it and it will be clear. It automatically creates a new directory inside the directory where the app.py is located where the episodes will be stored.
+Clone this repository and make sure your bash window is navigated in the folder where you cloned this repository. Add the correct environment variables like this:
+
+```bash
+export FACEBOOK_LOGIN="value"
+export FACEBOOK_PASSWORD="value"
+export FACEBOOK_THREAD="value"
+export SPOTIFY_USERNAME="value"
+export SPOTIFY_PLAYLIST="value"
+export SPOTIPY_CLIENT_ID="value"
+export SPOTIPY_CLIENT_SECRET="value"
+export SPOTIPY_REDIRECT_URI="value"
+```
+
+After you have set the environment variables, launch the bot like this:
 
 ```bash
 python3 app.py
@@ -26,8 +41,7 @@ heroku login
 git init
 ```
 
-Then create a new app on Heroku. Go to the settings of your created app, go to "Buildpacks" and choose Python. Then go "Config vars" and add the needed config variables. These are: `FACEBOOK_LOGIN`, `FACEBOOK_PASSWORD`, `FACEBOOK_THREAD`, ``, ``, ``
-to Save the changes and copy the name of your new app. Open your bash window:
+Then create a new app on Heroku. Go to the settings of your created app, go to "Buildpacks" and choose Python. Then go "Config vars" and add the needed config variables. These are: `FACEBOOK_LOGIN`, `FACEBOOK_PASSWORD`, `FACEBOOK_THREAD`, `SPOTIFY_USERNAME`, `SPOTIFY_PLAYLIST`, `SPOTIPY_CLIENT_ID`, `SPOTIPY_CLIENT_SECRET` and `SPOTIPY_REDIRECT_URI`. Save the changes and copy the name of your new app. Open your bash window:
 
 ```bash
 heroku git:remote -a <name of your app>
@@ -36,9 +50,7 @@ git commit -am "<message>"
 git push heroku master
 ```
 
-### Example how it will look like
-
-![Example](https://github.com/othellodesutter/VRT-NU-Downloader/blob/master/img/example1.png)
+If everything went right, your python script is now running online. Test it by pasting a the link to a Spotify track in the group chat, for example https://open.spotify.com/track/3VqMzQp2hso8CQpYNKxNNy?si=Wm7BsHHkRzCrK6npN6CKLQ.
 
 ## Contributing
 You can do whatever you want with this repository! Let me know if something is wrong or if you want to help.
