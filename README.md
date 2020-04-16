@@ -41,7 +41,13 @@ heroku login
 git init
 ```
 
-Then create a new app on Heroku. Go to the settings of your created app, go to "Buildpacks" and choose Python. Then go "Config vars" and add the needed config variables. These are: `FACEBOOK_LOGIN`, `FACEBOOK_PASSWORD`, `FACEBOOK_THREAD`, `SPOTIFY_USERNAME`, `SPOTIFY_PLAYLIST`, `SPOTIPY_CLIENT_ID`, `SPOTIPY_CLIENT_SECRET` and `SPOTIPY_REDIRECT_URI`. Save the changes and copy the name of your new app. Open your bash window:
+Then create a new app on Heroku. Go to the settings of your created app, go to "Buildpacks" and choose Python. Then go "Config vars" and add the needed config variables. These are: `FACEBOOK_LOGIN`, `FACEBOOK_PASSWORD`, `FACEBOOK_THREAD`, `SPOTIFY_USERNAME`, `SPOTIFY_PLAYLIST`, `SPOTIPY_CLIENT_ID`, `SPOTIPY_CLIENT_SECRET` and `SPOTIPY_REDIRECT_URI`. 
+
+![Choose the python buildpack](https://github.com/othellodesutter/Messenger-Spotify-Bot/blob/master/img/buildpack.png)
+
+![Set the correct environment variables](https://github.com/othellodesutter/Messenger-Spotify-Bot/blob/master/img/config_variables.png)
+
+Save the changes and copy the name of your new app. Open your bash window:
 
 ```bash
 heroku git:remote -a <name of your app>
