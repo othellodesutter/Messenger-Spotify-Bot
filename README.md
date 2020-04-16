@@ -11,7 +11,7 @@ pip3 install -r requirements.txt
 
 ## Usage
 
-First go to the Spotify for Developers website (https://developer.spotify.com/). Go to your dashboard and create a new application. Change the redirect-uri of your app to 'http:google.com/', you will need it later. You will also need the `Client ID` and `Clien Secret`. You will also need your Spotify `user id` and `playlist id` which you can find by copying your profile or playlist. The last thing you need is the Facebook `thread id`, which can be found if you go to the following link: https://www.facebook.com/messages/t/. It is the long number after the /t/.
+First go to the Spotify for Developers website (https://developer.spotify.com/). Go to your dashboard and create a new application. Change the redirect-uri of your app to 'http://google.com/', you will need it later. You will also need the `Client ID` and `Clien Secret`. You will also need your Spotify `user id` and `playlist id` which you can find by copying your profile or playlist. The last thing you need is the Facebook `thread id`, which can be found if you go to the following link: https://www.facebook.com/messages/t/. It is the long number after the /t/.
 
 ### Locally
 Clone this repository and make sure your bash window is navigated in the folder where you cloned this repository. Add the correct environment variables like this:
