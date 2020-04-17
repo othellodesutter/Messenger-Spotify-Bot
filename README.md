@@ -45,7 +45,7 @@ Then create a new app on Heroku. Go to the settings of your created app, go to "
 
 ![Choose the python buildpack](https://github.com/othellodesutter/Messenger-Spotify-Bot/blob/master/img/buildpack.png)
 
-![Set the correct environment variables](https://github.com/othellodesutter/Messenger-Spotify-Bot/blob/master/img/variables.png)
+![Set the correct environment variables](https://github.com/othellodesutter/Messenger-Spotify-Bot/blob/master/img/config_variables.png)
 
 Save the changes and copy the name of your new app. Open your bash window:
 
