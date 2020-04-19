@@ -40,36 +40,37 @@ def get_token():
 class Facebook(Client):
     def onMessage(self, author_id=None, message_object=None, thread_id=FThread, thread_type=ThreadType.GROUP, **kwargs):
         self.markAsRead(author_id)
-        msgText = message_object.text
-        mid = message_object.uid
-        metadata = self._forcedFetch(thread_id, mid).get("message")
-        try:
-            if "open.spotify.com" in msgText:
-                sp = get_token()
-                TrackID = (urlparse(msgText)).path
-                tracks = [TrackID]
-                sp.user_playlist_add_tracks(username, playlist_id, tracks, position=None)
-                print("\n****************************************\nAdding track to chosen playlist...\n****************************************\n")
-        except:
+        if thread_id == FThread and thread_type == ThreadType.GROUP:
+            msgText = message_object.text
+            mid = message_object.uid
+            metadata = self._forcedFetch(thread_id, mid).get("message")
             try:
-                uri = metadata['extensible_attachment']
-                uri = uri['story_attachment']
-                uri = uri['url']
-                uri = uri.replace("https://l.facebook.com/l.php?u=https%3A%2F%2Fopen.spotify.com%2Ftrack%2F","")
-
-                sp = get_token()
-                counter = 0
-                track_id_uri = []
-                for i in uri:
-                    if counter < 22:
-                        counter += 1
-                        track_id_uri.append(i)
-                TrackID = ''.join(track_id_uri)
-                tracks = [TrackID]
-                sp.user_playlist_add_tracks(username, playlist_id, tracks, position=None)
-                print("\n****************************************\nAdding track to chosen playlist...\n****************************************\n")
+                if "open.spotify.com" in msgText:
+                    sp = get_token()
+                    TrackID = (urlparse(msgText)).path
+                    tracks = [TrackID]
+                    sp.user_playlist_add_tracks(username, playlist_id, tracks, position=None)
+                    print("\n****************************************\nAdding track to chosen playlist...\n****************************************\n")
             except:
-                print("\n****************************************\nNot a (valid) Spotify track.\n****************************************\n")
+                try:
+                    uri = metadata['extensible_attachment']
+                    uri = uri['story_attachment']
+                    uri = uri['url']
+                    uri = uri.replace("https://l.facebook.com/l.php?u=https%3A%2F%2Fopen.spotify.com%2Ftrack%2F","")
+
+                    sp = get_token()
+                    counter = 0
+                    track_id_uri = []
+                    for i in uri:
+                        if counter < 22:
+                            counter += 1
+                            track_id_uri.append(i)
+                    TrackID = ''.join(track_id_uri)
+                    tracks = [TrackID]
+                    sp.user_playlist_add_tracks(username, playlist_id, tracks, position=None)
+                    print("\n****************************************\nAdding track to chosen playlist...\n****************************************\n")
+                except:
+                    print("\n****************************************\nNot a (valid) Spotify track.\n****************************************\n")
                 
 client = Facebook(FLogin, FPassword)
 client.listen()
